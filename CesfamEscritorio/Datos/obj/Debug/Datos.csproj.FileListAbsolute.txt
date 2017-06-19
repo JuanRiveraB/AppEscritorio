@@ -1,0 +1,8 @@
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Datos\bin\Debug\Datos.dll
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Datos\bin\Debug\Datos.pdb
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Datos\bin\Debug\Entidades.dll
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Datos\bin\Debug\Oracle.DataAccess.dll
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Datos\bin\Debug\Entidades.pdb
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Datos\obj\Debug\Datos.csprojResolveAssemblyReference.cache
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Datos\obj\Debug\Datos.dll
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Datos\obj\Debug\Datos.pdb
