@@ -3,3 +3,7 @@ C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Entidades\bin\
 C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Entidades\obj\Debug\Modelo.csprojResolveAssemblyReference.cache
 C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Entidades\obj\Debug\Entidades.dll
 C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Entidades\obj\Debug\Entidades.pdb
+C:\Users\CETECOM\Downloads\CesfamEscritorio\Entidades\bin\Debug\Entidades.dll
+C:\Users\CETECOM\Downloads\CesfamEscritorio\Entidades\bin\Debug\Entidades.pdb
+C:\Users\CETECOM\Downloads\CesfamEscritorio\Entidades\obj\Debug\Entidades.dll
+C:\Users\CETECOM\Downloads\CesfamEscritorio\Entidades\obj\Debug\Entidades.pdb

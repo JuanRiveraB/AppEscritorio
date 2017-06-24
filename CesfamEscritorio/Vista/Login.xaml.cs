@@ -61,7 +61,8 @@ namespace Vista
                     try
                     {
                         string rut = cadena;
-                        if (un.validarUsuario(rut, txtPass.Password))
+                        string pass = v.Encriptar(txtPass.Password);
+                        if (un.validarUsuario(rut, pass))
                         {
                             Inicio ini = new Inicio(rut);
                             ini.Show();

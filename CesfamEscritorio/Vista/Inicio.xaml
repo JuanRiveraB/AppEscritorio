@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
-        Title="Inicio" Height="800" Width="1000" WindowStartupLocation="CenterScreen" MinWidth="1000" MinHeight="800" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True">
+        Title="Inicio" Height="730" Width="1000" WindowStartupLocation="CenterScreen" MinWidth="1000" MinHeight="730" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" ResizeMode="CanMinimize">
     <Grid>
         <Menu x:Name="menu" Height="27" VerticalAlignment="Top">
             <MenuItem x:Name="mOpciones" Header="Opciones" Height="27" Width="72">
@@ -50,9 +50,10 @@
             <Button x:Name="btnCerrar" Content="Cerrar Sesión" VerticalAlignment="Top" Margin="0,112,10,0" Height="27" Click="Cerrar_Click" HorizontalAlignment="Right" Width="89"/>
             <Separator Height="10" Margin="0,141,0,0" VerticalAlignment="Top"/>
             <Button x:Name="btnPerfil" Content="Perfil" Margin="0,112,115,0" VerticalAlignment="Top" Click="mPerfil_Click" HorizontalAlignment="Right" Width="67" Height="27"/>
+            <Button x:Name="btnInicio" Content="Inicio" Margin="0,112,200,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="68" Height="27" Click="mInicio_Click"/>
         </Grid>
         <Grid x:Name="gPerfil" Margin="0,202,0,0">
-            <GroupBox x:Name="gbPerfil" Header="Perfil" Margin="10,10,25,0" FontSize="36" Height="434" VerticalAlignment="Top"/>
+            <GroupBox x:Name="gbPerfil" Header="Perfil" Margin="10,10,25,0" FontSize="36" Height="425" VerticalAlignment="Top"/>
             <Label x:Name="textoRut" Content="Rut:" HorizontalAlignment="Left" Margin="593,94,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Height="42" RenderTransformOrigin="1.978,0.573"/>
             <Label x:Name="textoNom" Content="Nombres:" HorizontalAlignment="Left" Margin="545,136,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Height="40"/>
             <Label x:Name="textoApe" Content="Apellidos:" HorizontalAlignment="Left" Margin="543,176,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Height="42"/>
@@ -83,8 +84,8 @@
                     <Image Source="img/edit.png" Height="31" Width="30"/>
                 </StackPanel>
             </Button>
-            <Button x:Name="btnGuarda" Visibility="Collapsed" Content="Guardar" Margin="0,0,25,67" HorizontalAlignment="Right" Width="92" Height="33" VerticalAlignment="Bottom" FontSize="16" Click="btnGuarda_Click"/>
-            <Button x:Name="btnCancelar" Visibility="Collapsed"  Content="Cancelar" Margin="0,0,143,67" HorizontalAlignment="Right" Width="92" Height="33" VerticalAlignment="Bottom" FontSize="16" Click="btnCancelar_Click"/>
+            <Button x:Name="btnGuarda"  Visibility="Collapsed" Content="Guardar" Margin="0,0,42,10" HorizontalAlignment="Right" Width="92" Height="34" VerticalAlignment="Bottom" FontSize="16" Click="btnGuarda_Click"/>
+            <Button x:Name="btnCancelar" Visibility="Collapsed" Content="Cancelar" Margin="0,0,160,10" HorizontalAlignment="Right" Width="92" Height="34" VerticalAlignment="Bottom" FontSize="16" Click="btnCancelar_Click"/>
             <Label x:Name="lblCod" Content="+56" Visibility="Collapsed" HorizontalAlignment="Left" Margin="654,300,0,0" VerticalAlignment="Top" FontSize="18"/>
         </Grid>
     </Grid>

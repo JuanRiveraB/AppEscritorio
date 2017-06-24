@@ -98,7 +98,7 @@ namespace Vista
         //Boton que busca los formularios del paciente por su rut
         private void btnBuscarR_Click(object sender, RoutedEventArgs e)
         {
-            Modelo.Paciente p = new Modelo.Paciente();
+           
         }
 
         private void llenarGrid()

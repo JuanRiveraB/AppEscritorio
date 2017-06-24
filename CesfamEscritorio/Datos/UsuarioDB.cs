@@ -61,7 +61,7 @@ namespace Datos
                     u.direccion = dr["DIRECCION"].ToString();
                     u.comunaId = Convert.ToDecimal(dr["COMUNA_ID"]);
                     u.contrasena = dr["CONTRASENA"].ToString();
-                    u.cargoId = Convert.ToDecimal(dr["CARGO_ID"]);
+                    u.nivelId = Convert.ToDecimal(dr["NIVEL_ID"]);
                 }
                 return u;
             }

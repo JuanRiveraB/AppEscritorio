@@ -12,9 +12,11 @@ namespace Modelo
         public string nombreComercial { get; set; }
         public string laboratorio { get; set; }
         public decimal ean13 { get; set; }
+        public string formaFarmaceutica { get; set; }
         public decimal stock { get; set; }
+        public DateTime caducidad { get; set; }
         public string indicaciones { get; set; }
-        public decimal idFarmacia { get; set; }
+        public decimal idSucursal { get; set; }
 
         public Medicamento()
         {
@@ -27,9 +29,11 @@ namespace Modelo
             nombreComercial = "";
             laboratorio = "";
             ean13 = 0;
+            formaFarmaceutica = "";
             stock = 0;
+            caducidad = System.DateTime.Now;
             indicaciones = "";
-            idFarmacia = 0;
+            idSucursal = 0;
         }
     }
 }

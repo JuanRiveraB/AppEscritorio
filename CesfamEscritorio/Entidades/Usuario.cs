@@ -19,7 +19,7 @@ namespace Modelo
         public string direccion { get; set; }
         public decimal comunaId { get; set; }
         public string contrasena { get; set; }
-        public decimal cargoId { get; set; }
+        public decimal nivelId { get; set; }
 
         public Usuario()
         {
@@ -39,7 +39,7 @@ namespace Modelo
             direccion = "";
             comunaId = 0;
             contrasena = "";
-            cargoId = 0;
+            nivelId = 0;
         }
     }
 }
