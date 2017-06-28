@@ -41,6 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComunaN.cs" />
+    <Compile Include="ControlStockN.cs" />
+    <Compile Include="MedicamentoN.cs" />
+    <Compile Include="PrescripcionN.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsuarioN.cs" />
     <Compile Include="Validadores.cs" />
@@ -50,9 +53,9 @@
       <Project>{ec1f0a1f-28d1-4a7c-9a8b-311f1381fefa}</Project>
       <Name>Datos</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Entidades\Modelo.csproj">
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
       <Project>{8c4a89f3-a805-42fb-828f-d3e84425a9c2}</Project>
-      <Name>Modelo</Name>
+      <Name>Entidades</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

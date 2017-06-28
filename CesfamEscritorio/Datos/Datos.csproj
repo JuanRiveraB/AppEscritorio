@@ -43,6 +43,9 @@
   <ItemGroup>
     <Compile Include="ComunaDB.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="ControlStockDB.cs" />
+    <Compile Include="MedicamentoDB.cs" />
+    <Compile Include="PrescripcionDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UsuarioDB.cs" />
   </ItemGroup>
@@ -50,9 +53,9 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Entidades\Modelo.csproj">
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
       <Project>{8c4a89f3-a805-42fb-828f-d3e84425a9c2}</Project>
-      <Name>Modelo</Name>
+      <Name>Entidades</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

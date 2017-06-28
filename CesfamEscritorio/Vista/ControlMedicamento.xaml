@@ -1,0 +1,75 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Vista"
+        xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="Vista.ControlMedicamento"
+        mc:Ignorable="d"
+        Title="Control de Medicamentos" Height="700" Width="900" Icon="img/ico.ico" ResizeMode="CanMinimize" MinWidth="900" MinHeight="700" WindowStartupLocation="CenterOwner">
+    <Grid>
+        <Menu x:Name="mCM" Height="27" VerticalAlignment="Top"/>
+
+        <Grid x:Name="gPresentación" Height="175" VerticalAlignment="Top" Margin="0,27,0,0">
+            <Grid x:Name="glogo" Height="109" VerticalAlignment="Top">
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                        <GradientStop Color="#FF464C70"/>
+                        <GradientStop Color="White" Offset="1"/>
+                        <GradientStop Color="#FFF9F9F9" Offset="0.361"/>
+                    </LinearGradientBrush>
+                </Grid.Background>
+            </Grid>
+            <Image x:Name="Logo" Height="121" VerticalAlignment="Top" Source="img/Logo.png" HorizontalAlignment="Left" Width="366"/>
+            <Label x:Name="lblBienvenido" Content="Farmacéutico/a: " Margin="0,112,0,0" FontSize="18" Height="37" VerticalAlignment="Top" HorizontalAlignment="Left" Width="149" FontWeight="Bold"/>
+            <Label x:Name="lblUsuario" Content="" Margin="154,112,0,0" VerticalAlignment="Top" FontSize="18" RenderTransformOrigin="-3,0.568" HorizontalAlignment="Left" Width="329" FontWeight="Bold"/>
+            <Separator Height="10" Margin="0,141,0,0" VerticalAlignment="Top"/>
+            <Button x:Name="btnVolver" Content="Volver a Inicio" HorizontalAlignment="Left" Margin="754,109,0,0" VerticalAlignment="Top" Width="103" Height="25" Click="btnVolver_Click"/>
+            <Button x:Name="btnIrAgregarMed" Content="Agregar Medicamento" HorizontalAlignment="Left" Margin="488,109,0,0" VerticalAlignment="Top" Width="127" Height="25" Click="btnIrAgregarMed_Click" />
+            <Button x:Name="btnIrAumentar" Content="Gestionar Stock" HorizontalAlignment="Left" Margin="635,109,0,0" VerticalAlignment="Top" Width="103" Height="25" Click="btnIrAumentar_Click"/>
+        </Grid>
+        <Grid x:Name="gMedAgregar" HorizontalAlignment="Left" Height="469" Margin="0,202,0,0" VerticalAlignment="Top" Width="894" d:IsHidden="True">
+            <GroupBox x:Name="groupBox1" Header="Agregar Medicamento" Margin="80,29,80,0" VerticalAlignment="Top" Height="372" FontSize="18" FontWeight="Bold"/>
+            <Label x:Name="lblNomMedAgre" Content="Nombre Comercial:" VerticalAlignment="Top" Margin="293,90,0,0" RenderTransformOrigin="1.75,1.231" FontSize="16" HorizontalAlignment="Left"/>
+            <Label x:Name="lblLabMedAgre" Content="Laboratorio:" VerticalAlignment="Top" Margin="345,126,0,0" RenderTransformOrigin="1.75,1.231" FontSize="16" HorizontalAlignment="Left"/>
+            <Label x:Name="lblEAN13Agre" Content="EAN13 (Cod Barra):" VerticalAlignment="Top" Margin="295,161,0,0" RenderTransformOrigin="1.75,1.231" FontSize="16" HorizontalAlignment="Left"/>
+            <Label x:Name="lblFormaFAgre" Content="Forma Farmaceutica:" VerticalAlignment="Top" Margin="285,197,0,0" RenderTransformOrigin="1.75,1.231" FontSize="16" HorizontalAlignment="Left"/>
+            <Label x:Name="lblStockAgre" Content="Stock:" VerticalAlignment="Top" Margin="388,233,0,0" RenderTransformOrigin="1.75,1.231" FontSize="16" HorizontalAlignment="Left"/>
+            <TextBox x:Name="txtNomCoAgre" HorizontalAlignment="Left" Height="28" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="464,93,0,0" FontSize="16"/>
+            <TextBox x:Name="txtLabAgre" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="464,131,0,0" FontSize="16"/>
+            <TextBox x:Name="txtEANAgre" HorizontalAlignment="Left" Height="28" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="464,164,0,0" FontSize="16"/>
+            <TextBox x:Name="txtFFAgre" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="464,202,0,0" FontSize="16"/>
+            <TextBox x:Name="txtStockAgre" HorizontalAlignment="Left" Height="28" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="464,236,0,0" FontSize="16" KeyDown="txtStockAgre_KeyDown"/>
+            <Button x:Name="btnCancelarAgre" Content="Cancelar" Margin="470,335,0,0" Height="32" VerticalAlignment="Top" HorizontalAlignment="Left" Width="84" Click="btnCancelarAgre_Click"/>
+            <Button x:Name="btnAgregar" Margin="578,335,0,0" HorizontalAlignment="Left" Width="86" Height="32" VerticalAlignment="Top" Content="Agregar" Click="btnAgregar_Click"/>
+            <Label x:Name="lblMesjAgregar" Content="" HorizontalAlignment="Left" Margin="92,336,0,0" VerticalAlignment="Top" FontSize="16" Width="348" Foreground="Red"/>
+        </Grid>
+        <Grid x:Name="gMedInicio" Margin="0,202,0,0">
+            <GroupBox x:Name="groupBox" Header="Gestionar Stock Medicamento" Margin="49,34,49,39" FontSize="18" FontWeight="Bold"/>
+            <Label x:Name="lblIdMedAu" Visibility="Hidden" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="119,106,0,0" Width="127"/>
+            <Label x:Name="lblNomMed" Content="Nombre Comercial:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="469,151,0,0" RenderTransformOrigin="1.75,1.231" FontSize="14"/>
+            <Label x:Name="lblLabMed" Content="Laboratorio:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="513,180,0,0" RenderTransformOrigin="1.75,1.231" FontSize="14"/>
+            <Label x:Name="lblEAN13" Content="EAN13 (Cod Barra):" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="471,209,0,0" RenderTransformOrigin="1.75,1.231" FontSize="14"/>
+            <Label x:Name="lblFormaF" Content="Forma Farmaceutica:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="462,238,0,0" RenderTransformOrigin="1.75,1.231" FontSize="14"/>
+            <Label x:Name="lblStock" Content="Stock:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="552,267,0,0" RenderTransformOrigin="1.75,1.231" FontSize="14"/>
+            <TextBox x:Name="txtNomCoAu" IsReadOnly="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" Margin="631,157,0,0" FontSize="14"/>
+            <TextBox x:Name="txtLabAu" IsReadOnly="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" Margin="631,186,0,0" FontSize="14"/>
+            <TextBox x:Name="txtEANAu" IsReadOnly="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" Margin="631,215,0,0" FontSize="14"/>
+            <TextBox x:Name="txtFFAu" IsReadOnly="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" Margin="631,244,0,0" FontSize="14"/>
+            <TextBox x:Name="txtStockAu" IsReadOnly="True" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" Margin="631,273,0,0" FontSize="14"/>
+            <Button x:Name="btnCancelarAu" Content="Cancelar" Margin="528,376,0,0" Height="33" VerticalAlignment="Top" HorizontalAlignment="Left" Width="84" Click="btnCancelarAu_Click"/>
+            <Button x:Name="btnAumentar" Margin="738,376,0,0" HorizontalAlignment="Left" Width="86" Height="33" VerticalAlignment="Top" Content="Aumentar" Click="btnAumentar_Click"/>
+            <ComboBox x:Name="cboAuMed" FontSize="14" HorizontalAlignment="Left" Width="225" Height="27" VerticalAlignment="Top" Margin="585,81,0,0" SelectionChanged="cboAuMed_SelectionChanged">
+            </ComboBox>
+            <Label x:Name="lblNomCCAu" Content="Asunto del Aumento:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="58,151,0,0" RenderTransformOrigin="1.75,1.231" FontSize="14"/>
+            <Label x:Name="lblDesCCAu" Content="Descripción:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="114,224,0,0" RenderTransformOrigin="1.75,1.231" FontSize="14"/>
+            <Label x:Name="lblCantCCAu" Content="Cantidad Agregada:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="66,189,0,0" RenderTransformOrigin="1.75,1.231" FontSize="14"/>
+            <TextBox x:Name="txtNomCCAu" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" Margin="217,157,0,0" FontSize="14"/>
+            <TextBox x:Name="txtCanCCAu" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" Margin="217,195,0,0" FontSize="14" KeyDown="txtCanCCAu_KeyDown"/>
+            <Label x:Name="lblMsjAumen" Content="" HorizontalAlignment="Left" Margin="66,379,0,0" VerticalAlignment="Top" Width="364" Foreground="Red"/>
+            <TextBox x:Name="txtDesCCAu" HorizontalAlignment="Left" Height="144" TextWrapping="Wrap" VerticalAlignment="Top" Width="213" Margin="217,230,0,0" FontSize="14" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" MaxLength="256"/>
+            <Button x:Name="btnDescontar" Margin="631,376,0,0" HorizontalAlignment="Left" Width="85" Height="33" VerticalAlignment="Top" Content="Descontar" Click="btnDescontar_Click"/>
+        </Grid>
+
+    </Grid>
+</Window>

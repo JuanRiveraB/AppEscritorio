@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
-        Title="Login" Height="531" Width="722.862" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen">
+        Title="Login" Height="531" Width="722.862" ResizeMode="CanMinimize" WindowStartupLocation="CenterScreen" Icon="img/ico.ico">
     <Grid x:Name="grdPrincipal">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="56*"/>

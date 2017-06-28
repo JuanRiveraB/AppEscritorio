@@ -12,7 +12,7 @@ namespace Datos
     {
         public bool validarUsuario(string rut, string pass)
         {
-            Modelo.Usuario u = new Modelo.Usuario();
+            Entidades.Usuario u = new Entidades.Usuario();
             try
             {
                 string sqlSelect = "SELECT * FROM USUARIO WHERE RUT = '" + rut + "' AND CONTRASENA = '" + pass + "'";
@@ -38,9 +38,9 @@ namespace Datos
             }
         }
 
-        public Modelo.Usuario obtenerDatos(string rut)
+        public Entidades.Usuario obtenerDatos(string rut)
         {
-            Modelo.Usuario u = new Modelo.Usuario();
+            Entidades.Usuario u = new Entidades.Usuario();
             try
             {
                 string sqlSelect = "SELECT * FROM USUARIO WHERE RUT = '" + rut + "'";
@@ -71,7 +71,7 @@ namespace Datos
             }
         }
 
-        public bool modificarUsuario(Modelo.Usuario usuario)
+        public bool modificarUsuario(Entidades.Usuario usuario)
         {
             try
             {

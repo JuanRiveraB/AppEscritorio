@@ -8,11 +8,11 @@ namespace Negocio
 {
     public class ComunaN
     {
-        public Modelo.Comuna cargarComuna(decimal idComuna)
+        public Entidades.Comuna cargarComuna(decimal idComuna)
         {
             try
             {
-                Modelo.Comuna c = new Modelo.Comuna();
+                Entidades.Comuna c = new Entidades.Comuna();
                 Datos.ComunaDB cdb = new Datos.ComunaDB();
                 c = cdb.obtenerComuna(idComuna);
                 if (c != null)
@@ -30,12 +30,12 @@ namespace Negocio
             }
         }
 
-        public List<Modelo.Comuna> listarComunas()
+        public List<Entidades.Comuna> listarComunas()
         {
             try
             {
                 Datos.ComunaDB cdb = new Datos.ComunaDB();
-                List<Modelo.Comuna> comunas = cdb.listarComunas();
+                List<Entidades.Comuna> comunas = cdb.listarComunas();
                 if (comunas != null)
                 {
                     return comunas;

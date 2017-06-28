@@ -1,13 +1,3 @@
-C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Negocio\bin\Debug\Negocio.dll
-C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Negocio\bin\Debug\Negocio.pdb
-C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Negocio\bin\Debug\Datos.dll
-C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Negocio\bin\Debug\Entidades.dll
-C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Negocio\bin\Debug\Oracle.DataAccess.dll
-C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Negocio\bin\Debug\Datos.pdb
-C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Negocio\bin\Debug\Entidades.pdb
-C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Negocio\obj\Debug\Negocio.csprojResolveAssemblyReference.cache
-C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Negocio\obj\Debug\Negocio.dll
-C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Negocio\obj\Debug\Negocio.pdb
 C:\Users\CETECOM\Downloads\CesfamEscritorio\Negocio\bin\Debug\Negocio.dll
 C:\Users\CETECOM\Downloads\CesfamEscritorio\Negocio\bin\Debug\Negocio.pdb
 C:\Users\CETECOM\Downloads\CesfamEscritorio\Negocio\bin\Debug\Datos.dll
@@ -18,3 +8,13 @@ C:\Users\CETECOM\Downloads\CesfamEscritorio\Negocio\bin\Debug\Entidades.pdb
 C:\Users\CETECOM\Downloads\CesfamEscritorio\Negocio\obj\Debug\Negocio.csprojResolveAssemblyReference.cache
 C:\Users\CETECOM\Downloads\CesfamEscritorio\Negocio\obj\Debug\Negocio.dll
 C:\Users\CETECOM\Downloads\CesfamEscritorio\Negocio\obj\Debug\Negocio.pdb
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Negocio\bin\Debug\Negocio.dll
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Negocio\bin\Debug\Negocio.pdb
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Negocio\bin\Debug\Datos.dll
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Negocio\bin\Debug\Entidades.dll
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Negocio\bin\Debug\Oracle.DataAccess.dll
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Negocio\bin\Debug\Datos.pdb
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Negocio\bin\Debug\Entidades.pdb
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Negocio\obj\Debug\Negocio.csprojResolveAssemblyReference.cache
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Negocio\obj\Debug\Negocio.dll
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Negocio\obj\Debug\Negocio.pdb

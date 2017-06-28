@@ -11,7 +11,8 @@ namespace Entidades
         public decimal idPrescripcion { get; set; }
         public string diagnostico { get; set; }
         public string estado { get; set; }
-        public DateTime fechaPrescip { get; set; }
+        public DateTime? fechaPrescip { get; set; }
+        public decimal cantidad { get; set; }
         public string idPersona { get; set; }
         public string idMedico { get; set; }
         public decimal idMedicamento { get; set; }
@@ -26,7 +27,7 @@ namespace Entidades
             idPrescripcion = 0;
             diagnostico = "";
             estado = "";
-            fechaPrescip = System.DateTime.Now;
+            cantidad = 0;
             idPersona = "";
             idMedico = "";
             idMedicamento = 0;

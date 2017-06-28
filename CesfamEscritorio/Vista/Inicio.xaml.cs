@@ -22,6 +22,8 @@ namespace Vista
     public partial class Inicio : Window
     {
         public string rut { get; set; }
+        public string valorDgCboEstado { get; set; }
+
         public Inicio(string rut)
         {
             this.rut = rut;
@@ -39,7 +41,9 @@ namespace Vista
             //Deshabilita Perfil
             gPerfil.IsEnabled = false;
             gPerfil.Visibility = Visibility.Collapsed;
-            //Deshanilita
+            //Deshabilita Listar
+            gListarPres.IsEnabled = false;
+            gListarPres.Visibility = Visibility.Collapsed;
         }
 
         //Boton que carga inicio
@@ -98,17 +102,14 @@ namespace Vista
         //Boton que busca los formularios del paciente por su rut
         private void btnBuscarR_Click(object sender, RoutedEventArgs e)
         {
-           
+            llenarGrid();
         }
 
         private void llenarGrid()
         {
-            /*dataGrid.ItemsSource = null;
-            DataTable dt = new DataTable();
-            dt.Columns.Add("Nombre");
-            dt.Columns.Add("Apellido");
-            dt.Rows.Add("Nicolas", "Herrera");
-            dataGrid.ItemsSource = dt.DefaultView;*/
+            Negocio.PrescripcionN prn = new Negocio.PrescripcionN();
+            string rutPer = txtPRut.Text + "-" + txtPDv.Text.ToLower();
+            dgPrescrip.ItemsSource = prn.listarPresEmitidos(rutPer);
         }
 
         private void mPerfil_Click(object sender, RoutedEventArgs e)
@@ -116,6 +117,9 @@ namespace Vista
             lblMsjP.Content = "";
             gInicio.IsEnabled = false;
             gInicio.Visibility = Visibility.Collapsed;
+            //Esconde Listar Prescripcion por si se activo
+            gListarPres.IsEnabled = false;
+            gListarPres.Visibility = Visibility.Collapsed;
             // Activar grid y perfil
             gPerfil.IsEnabled = true;
             gPerfil.Visibility = Visibility.Visible;
@@ -129,10 +133,10 @@ namespace Vista
             {
                 //Carga Usuario
                 Negocio.UsuarioN un = new Negocio.UsuarioN();
-                Modelo.Usuario u = new Modelo.Usuario();
+                Entidades.Usuario u = new Entidades.Usuario();
                 u = un.cargarUsuario(this.rut);
                 //Carga Comuna
-                Modelo.Comuna c = new Modelo.Comuna();
+                Entidades.Comuna c = new Entidades.Comuna();
                 Negocio.ComunaN cn = new Negocio.ComunaN();
                 if (u != null)
                 {
@@ -147,7 +151,8 @@ namespace Vista
                     c = cn.cargarComuna(u.comunaId);
                     lblComuna.Content = c.nombre;
                     lblMsjP.Content = "";
-                }else
+                }
+                else
                 {
                     lblMsjP.Content = "Error, al cargar perfil";
                 }
@@ -198,7 +203,7 @@ namespace Vista
             try
             {
                 Negocio.UsuarioN un = new Negocio.UsuarioN();
-                Modelo.Usuario u = new Modelo.Usuario();
+                Entidades.Usuario u = new Entidades.Usuario();
                 Negocio.Validadores v = new Negocio.Validadores();
                 u = un.cargarUsuario(this.rut);
                 if (u != null)
@@ -231,12 +236,14 @@ namespace Vista
                             {
                                 lblMsjP.Content = "Email no valido";
                             }
-                            
-                        }else
+
+                        }
+                        else
                         {
                             lblMsjP.Content = "No puede tener campos vacios el momento de cambiar";
                         }
-                    }else if (txtEmail.Visibility == Visibility.Visible)
+                    }
+                    else if (txtEmail.Visibility == Visibility.Visible)
                     {
                         if (txtEmail.Text.Trim() != "")
                         {
@@ -261,11 +268,13 @@ namespace Vista
                             {
                                 lblMsjP.Content = "Email no valido";
                             }
-                        }else
+                        }
+                        else
                         {
                             lblMsjP.Content = "No puede tener campos vacios el momento de cambiar";
                         }
-                    }else
+                    }
+                    else
                     {
                         if (txtCel.Text.Trim() != "")
                         {
@@ -291,7 +300,8 @@ namespace Vista
                             lblMsjP.Content = "No puede tener campos vacios el momento de cambiar";
                         }
                     }
-                }else
+                }
+                else
                 {
                     lblMsjP.Content = "Error al guardar, Contacte soporte";
                 }
@@ -313,6 +323,123 @@ namespace Vista
             {
                 e.Handled = true;
             }
+        }
+
+        private void btnGuardarPres_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Entidades.PrescripcionPersonalizada pr = new Entidades.PrescripcionPersonalizada();
+                Negocio.PrescripcionN pn = new Negocio.PrescripcionN();
+                Entidades.Prescripcion p = new Entidades.Prescripcion();
+                pr = (Entidades.PrescripcionPersonalizada)dgPrescrip.SelectedItem;
+                p = pn.obtenerPres(pr.idPrescripcion);
+                p.estado = valorDgCboEstado;
+                if (p != null && p.estado != "Emitido" && valorDgCboEstado.Trim() != string.Empty)
+                {
+                    if (pn.modificarPres(p))
+                    {
+                        MessageBox.Show("Exito al guardar");
+                        valorDgCboEstado = "";
+                        llenarGrid();
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+            }
+        }
+
+        private void cboEstados_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            try
+            {
+                var comboBox = sender as ComboBox;
+                ComboBoxItem typeItem = (ComboBoxItem)comboBox.SelectedItem;
+                valorDgCboEstado = typeItem.Content.ToString();
+            }
+            catch (Exception)
+            {
+
+
+            }
+        }
+
+        private void mListarPres_Click(object sender, RoutedEventArgs e)
+        {
+            //Esconde inicio
+            gInicio.IsEnabled = false;
+            gInicio.Visibility = Visibility.Collapsed;
+            //Esconde Perfil
+            gPerfil.IsEnabled = false;
+            gPerfil.Visibility = Visibility.Collapsed;
+            //Habilita ListarPres
+            gListarPres.IsEnabled = true;
+            gListarPres.Visibility = Visibility.Visible;
+        }
+
+        private void btnListarPres_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Negocio.PrescripcionN pn = new Negocio.PrescripcionN();
+                Entidades.PrescripcionPersonalizada pp = new Entidades.PrescripcionPersonalizada();
+                ComboBoxItem typeItem = (ComboBoxItem)cboListarPres.SelectedItem;
+                string valorCbo = typeItem.Content.ToString();
+                switch (valorCbo)
+                {
+                    case "Todas":
+                        dgLisPres.ItemsSource = pn.listarPres(" ");
+                        break;
+                    case "Emitido":
+                        dgLisPres.ItemsSource = pn.listarPres("Emitido");
+                        break;
+                    case "Completado":
+                        dgLisPres.ItemsSource = pn.listarPres("Completado");
+                        break;
+                    case "Reservar":
+                        dgLisPres.ItemsSource = pn.listarPres("Reservar");
+                        break;
+                    default:
+                        break;
+                }
+            }
+            catch (Exception)
+            {
+
+
+            }
+        }
+
+        private void mCMedicamento_Click(object sender, RoutedEventArgs e)
+        {
+            ControlMedicamento cm = new ControlMedicamento(this.rut);
+            cm.Owner = this;
+            AplicarEfecto(this);
+            cm.ShowDialog();
+            bool?
+            resultado = cm.DialogResult;
+            if (resultado != null)
+            {
+                if (resultado == false)
+                {
+                    QuitarEfecto(this);
+                }
+            }
+        }
+
+        private void AplicarEfecto(Window win)
+
+        {
+            var objBlur = new System.Windows.Media.Effects.BlurEffect();
+            win.Effect = objBlur;
+        }
+
+        private void QuitarEfecto(Window win)
+
+        {
+            win.Effect = null;
         }
     }
 }

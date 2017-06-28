@@ -10,9 +10,9 @@ namespace Datos
 {
     public class ComunaDB
     {
-        public Modelo.Comuna obtenerComuna(decimal idComuna)
+        public Entidades.Comuna obtenerComuna(decimal idComuna)
         {
-            Modelo.Comuna c = new Modelo.Comuna();
+            Entidades.Comuna c = new Entidades.Comuna();
             try
             {
                 string sqlSelect = "SELECT * FROM COMUNA WHERE ID_COMUNA = " + idComuna;
@@ -33,7 +33,7 @@ namespace Datos
             }
         }
 
-        public List<Modelo.Comuna> listarComunas()
+        public List<Entidades.Comuna> listarComunas()
         {
             try
             {
@@ -42,10 +42,10 @@ namespace Datos
                 cmd.CommandText = sqlSelect;
                 cmd.CommandType = CommandType.Text;
                 OracleDataReader dr = cmd.ExecuteReader();
-                List<Modelo.Comuna> comunas = new List<Modelo.Comuna>();
+                List<Entidades.Comuna> comunas = new List<Entidades.Comuna>();
                 while (dr.Read())
                 {
-                    Modelo.Comuna c = new Modelo.Comuna();
+                    Entidades.Comuna c = new Entidades.Comuna();
                     c.idComuna = Convert.ToDecimal(dr["ID_COMUNA"]);
                     c.nombre = dr["NOMBRE"].ToString();
                     comunas.Add(c);

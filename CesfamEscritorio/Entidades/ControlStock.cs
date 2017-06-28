@@ -12,6 +12,7 @@ namespace Entidades
         public string nombre { get; set; }
         public string descripcion { get; set; }
         public DateTime fecha { get; set; }
+        public decimal cantidad { get; set; }
         public decimal idMedicamento { get; set; }
         public string idUsuario { get; set; }
         
@@ -26,6 +27,7 @@ namespace Entidades
             nombre = "";
             descripcion = "";
             fecha = System.DateTime.Now;
+            cantidad = 0;
             idMedicamento = 0;
             idUsuario = "";
         }

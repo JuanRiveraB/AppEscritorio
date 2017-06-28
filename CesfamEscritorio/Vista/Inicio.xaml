@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Vista"
         mc:Ignorable="d"
-        Title="Inicio" Height="730" Width="1000" WindowStartupLocation="CenterScreen" MinWidth="1000" MinHeight="730" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" ResizeMode="CanMinimize">
+        Title="Inicio" Height="730" Width="1100" WindowStartupLocation="CenterScreen" MinWidth="1100" MinHeight="730" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" ResizeMode="CanMinimize" Icon="img/ico.ico">
     <Grid>
         <Menu x:Name="menu" Height="27" VerticalAlignment="Top">
             <MenuItem x:Name="mOpciones" Header="Opciones" Height="27" Width="72">
@@ -15,8 +15,8 @@
             <MenuItem x:Name="mNavegacion" Header="Navegación">
                 <MenuItem x:Name="mInicio" Header="Inicio" HorizontalAlignment="Left" Width="140" Click="mInicio_Click"/>
                 <MenuItem x:Name="mPerfil" Header="Perfil" Click="mPerfil_Click"/>
-                <MenuItem x:Name="mListarMed" Header="Listar todos los Formularios"/>
-                <MenuItem x:Name="mCMedicamento" Header="Control de Medicamentos"/>
+                <MenuItem x:Name="mListarPres" Header="Listar todas las Precripciones" Click="mListarPres_Click"/>
+                <MenuItem x:Name="mCMedicamento" Header="Control de Medicamentos" Click="mCMedicamento_Click" />
             </MenuItem>
         </Menu>
         <Grid x:Name="gInicio" Margin="0,202,0,0" d:IsHidden="True">
@@ -26,13 +26,111 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Label x:Name="lblBusq" Content="Buscar Formulario Paciente por Rut:" HorizontalAlignment="Left" Margin="8,60,0,-35" VerticalAlignment="Top" FontSize="14"/>
+            <Label x:Name="lblBusq" Content="Buscar Prescripción por Rut:" HorizontalAlignment="Left" Margin="8,60,0,-35" VerticalAlignment="Top" FontSize="14"/>
             <Label x:Name="lblGuion" Content="-" HorizontalAlignment="Left" Margin="363,65,0,-36" VerticalAlignment="Top"/>
             <TextBox x:Name="txtPRut" MaxLength="8" HorizontalAlignment="Left" Height="27" Margin="244,64,0,-37" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="14" KeyDown="txtPRut_KeyDown"/>
             <TextBox x:Name="txtPDv" MaxLength="1" HorizontalAlignment="Left" Height="27" Margin="378,64,0,-37" TextWrapping="Wrap" VerticalAlignment="Top" Width="26" FontSize="14" KeyDown="txtPDv_KeyDown"/>
             <Button x:Name="btnBuscarR" Content="Buscar" HorizontalAlignment="Left" Margin="438,64,0,-38" VerticalAlignment="Top" Width="108" Height="28" Click="btnBuscarR_Click"/>
             <Label x:Name="lblTitle" Content="Entrega Express" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="16" FontWeight="Bold"/>
             <Separator Height="13" Margin="0,32,0,0" VerticalAlignment="Top"/>
+            <DataGrid x:Name="dgPrescrip" Margin="60,119,60,-380" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn x:Name="dgtIdPres" Visibility="Collapsed">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content = "{Binding idPrescripcion}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="dgtRut" Header="Rut Retira" IsReadOnly="True" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content = "{Binding rutPersona}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="dgtNomPers" Header="Nombre Completo">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content = "{Binding nomPersona}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="dgtDiagnos" Header="Diagnostico">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content = "{Binding diagnostico}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="dgtFecha" Header="Fecha">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content = "{Binding fechaPres}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="dgtRutMed" Header="Rut Medico">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content = "{Binding rutMedico}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="dgtNomMed" Header="Nombre Medico">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content = "{Binding nomMedico}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="dgtMedicamen" Header="Medicamento">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content = "{Binding nomMedicamento}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="dgtFormaF" Header="Forma Farmaceutica">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content = "{Binding formaFarmaceutica}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="dgtCantidad" Header="Cantidad">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content = "{Binding cantidad}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="dgtEstado" Header="Estado">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content = "{Binding estado}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="dgtOp" Header="Opciones">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <ComboBox x:Name="cboEstados" SelectionChanged="cboEstados_SelectionChanged">
+                                    <ComboBoxItem Content="Completado"/>
+                                    <ComboBoxItem Content="Reservar"/>
+                                </ComboBox>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="dgtGuardar" Header="Guardar">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="btnGuardarPres" Content="Guardar" Click="btnGuardarPres_Click" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
         </Grid>
         <Grid x:Name="gPresentación" Height="175" VerticalAlignment="Top" Margin="0,27,0,0">
             <Grid x:Name="glogo" Height="109" VerticalAlignment="Top">
@@ -45,14 +143,14 @@
                 </Grid.Background>
             </Grid>
             <Image x:Name="Logo" Height="121" VerticalAlignment="Top" Source="img/Logo.png" HorizontalAlignment="Left" Width="366"/>
-            <Label x:Name="lblBienvenido" Content="Bienvenido/a: " Margin="0,112,0,0" FontSize="18" Height="37" VerticalAlignment="Top" HorizontalAlignment="Left" Width="125" FontWeight="Bold"/>
-            <Label x:Name="lblUsuario" Content="" Margin="130,112,0,0" VerticalAlignment="Top" FontSize="18" RenderTransformOrigin="-3,0.568" HorizontalAlignment="Left" Width="241" FontWeight="Bold"/>
+            <Label x:Name="lblBienvenido" Content="Bienvenido/a: " Margin="0,112,0,0" FontSize="18" Height="37" VerticalAlignment="Top" HorizontalAlignment="Left" Width="130" FontWeight="Bold"/>
+            <Label x:Name="lblUsuario" Content="" Margin="135,112,0,0" VerticalAlignment="Top" FontSize="18" RenderTransformOrigin="-3,0.568" HorizontalAlignment="Left" Width="241" FontWeight="Bold"/>
             <Button x:Name="btnCerrar" Content="Cerrar Sesión" VerticalAlignment="Top" Margin="0,112,10,0" Height="27" Click="Cerrar_Click" HorizontalAlignment="Right" Width="89"/>
             <Separator Height="10" Margin="0,141,0,0" VerticalAlignment="Top"/>
             <Button x:Name="btnPerfil" Content="Perfil" Margin="0,112,115,0" VerticalAlignment="Top" Click="mPerfil_Click" HorizontalAlignment="Right" Width="67" Height="27"/>
             <Button x:Name="btnInicio" Content="Inicio" Margin="0,112,200,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="68" Height="27" Click="mInicio_Click"/>
         </Grid>
-        <Grid x:Name="gPerfil" Margin="0,202,0,0">
+        <Grid x:Name="gPerfil" Margin="0,202,0,0" d:IsHidden="True">
             <GroupBox x:Name="gbPerfil" Header="Perfil" Margin="10,10,25,0" FontSize="36" Height="425" VerticalAlignment="Top"/>
             <Label x:Name="textoRut" Content="Rut:" HorizontalAlignment="Left" Margin="593,94,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Height="42" RenderTransformOrigin="1.978,0.573"/>
             <Label x:Name="textoNom" Content="Nombres:" HorizontalAlignment="Left" Margin="545,136,0,0" VerticalAlignment="Top" FontSize="18" FontWeight="Bold" Height="40"/>
@@ -87,6 +185,96 @@
             <Button x:Name="btnGuarda"  Visibility="Collapsed" Content="Guardar" Margin="0,0,42,10" HorizontalAlignment="Right" Width="92" Height="34" VerticalAlignment="Bottom" FontSize="16" Click="btnGuarda_Click"/>
             <Button x:Name="btnCancelar" Visibility="Collapsed" Content="Cancelar" Margin="0,0,160,10" HorizontalAlignment="Right" Width="92" Height="34" VerticalAlignment="Bottom" FontSize="16" Click="btnCancelar_Click"/>
             <Label x:Name="lblCod" Content="+56" Visibility="Collapsed" HorizontalAlignment="Left" Margin="654,300,0,0" VerticalAlignment="Top" FontSize="18"/>
+        </Grid>
+        <Grid x:Name="gListarPres" Margin="0,202,0,0">
+            <DataGrid x:Name="dgLisPres" Margin="55,106,55,0" VerticalAlignment="Top" Height="347" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn x:Name="dgtIdLisPres" Visibility="Collapsed">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content = "{Binding idPrescripcion}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="dgtLisRut" Header="Rut Retira" IsReadOnly="True" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content = "{Binding rutPersona}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="dgtLisNomPers" Header="Nombre Completo">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content = "{Binding nomPersona}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="dgtLisDiagnos" Header="Diagnostico">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content = "{Binding diagnostico}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="dgtLisFecha" Header="Fecha">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content = "{Binding fechaPres}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="dgtLisRutMed" Header="Rut Medico">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content = "{Binding rutMedico}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="dgtLisNomMed" Header="Nombre Medico">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content = "{Binding nomMedico}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="dgtLisMedicamen" Header="Medicamento">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content = "{Binding nomMedicamento}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="dgtLisFormaF" Header="Forma Farmaceutica">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content = "{Binding formaFarmaceutica}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="dgtLisCantidad" Header="Cantidad">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content = "{Binding cantidad}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="dgtLisEstado" Header="Estado">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content = "{Binding estado}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <ComboBox x:Name="cboListarPres" HorizontalAlignment="Left" Margin="55,44,0,0" VerticalAlignment="Top" Width="182" Height="30" SelectedIndex="0">
+                <ComboBoxItem Content="Todas"/>
+                <ComboBoxItem Content="Emitido"/>
+                <ComboBoxItem Content="Completado"/>
+                <ComboBoxItem Content="Reservar"/>
+            </ComboBox>
+            <Button x:Name="btnListarPres" Content="Listar" HorizontalAlignment="Left" Margin="297,44,0,0" VerticalAlignment="Top" Width="119" Height="30" Click="btnListarPres_Click"/>
         </Grid>
     </Grid>
 </Window>

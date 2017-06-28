@@ -33,7 +33,7 @@ namespace Negocio
             try
             {
                 Datos.UsuarioDB uDB = new Datos.UsuarioDB();
-                Modelo.Usuario u = new Modelo.Usuario();
+                Entidades.Usuario u = new Entidades.Usuario();
                 u = uDB.obtenerDatos(rut);
                 if (u != null)
                 {
@@ -52,12 +52,12 @@ namespace Negocio
             }
         }
 
-        public Modelo.Usuario cargarUsuario(string rut)
+        public Entidades.Usuario cargarUsuario(string rut)
         {
             try
             {
                 Datos.UsuarioDB uDB = new Datos.UsuarioDB();
-                Modelo.Usuario u = new Modelo.Usuario();
+                Entidades.Usuario u = new Entidades.Usuario();
                 u = uDB.obtenerDatos(rut);
                 if (u != null)
                 {
@@ -75,7 +75,7 @@ namespace Negocio
             }
         }
 
-        public bool modificarusuario(Modelo.Usuario usuario)
+        public bool modificarusuario(Entidades.Usuario usuario)
         {
             try
             {
