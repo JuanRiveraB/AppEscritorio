@@ -29,6 +29,27 @@ namespace Negocio
             }
         }
 
+        public List<Entidades.PrescripcionPersonalizada> listarPresReservar(string rut)
+        {
+            try
+            {
+                Datos.PrescripcionDB pdb = new Datos.PrescripcionDB();
+                List<Entidades.PrescripcionPersonalizada> pres = pdb.obtenerPresReservadas(rut);
+                if (pres != null)
+                {
+                    return pres;
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         public List<Entidades.PrescripcionPersonalizada> listarPres(string estado)
         {
             try
@@ -88,6 +109,37 @@ namespace Negocio
             {
 
                 return false;
+            }
+        }
+
+        public List<Entidades.PrescripcionAviso> obtenerReservadas(decimal idMed)
+        {
+            try
+            {
+                Entidades.PrescripcionAviso pv = new Entidades.PrescripcionAviso();
+                Datos.PrescripcionDB pdb = new Datos.PrescripcionDB();
+                return pdb.obtenerPresReservadasAviso(idMed);
+
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
+
+        public List<Entidades.PrescripcionAviso> obtenerReservadasAviso()
+        {
+            try
+            {
+                Entidades.PrescripcionAviso pv = new Entidades.PrescripcionAviso();
+                Datos.PrescripcionDB pdb = new Datos.PrescripcionDB();
+                return pdb.obtenerCorreosReserva();
+            }
+            catch (Exception)
+            {
+
+                return null;
             }
         }
     }

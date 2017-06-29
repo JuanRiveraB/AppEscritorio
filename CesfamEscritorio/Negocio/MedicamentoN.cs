@@ -103,5 +103,23 @@ namespace Negocio
                 return false;
             }
         }
+
+        public bool eliminarMedicamento(Entidades.Medicamento m)
+        {
+            try
+            {
+                Datos.MedicamentoDB mdb = new Datos.MedicamentoDB();
+                if (mdb.eliminarMed(m))
+                {
+                    return true;
+                }
+                return false;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
     }
 }

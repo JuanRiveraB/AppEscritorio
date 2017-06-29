@@ -21,32 +21,63 @@ C:\Users\CETECOM\Downloads\CesfamEscritorio\Vista\obj\Debug\Vista.Properties.Res
 C:\Users\CETECOM\Downloads\CesfamEscritorio\Vista\obj\Debug\Vista.csproj.GenerateResource.Cache
 C:\Users\CETECOM\Downloads\CesfamEscritorio\Vista\obj\Debug\Vista.exe
 C:\Users\CETECOM\Downloads\CesfamEscritorio\Vista\obj\Debug\Vista.pdb
-C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\bin\Debug\Vista.exe.config
-C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\bin\Debug\Vista.exe
-C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\bin\Debug\Vista.pdb
-C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\bin\Debug\Entidades.dll
-C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\bin\Debug\Negocio.dll
-C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\bin\Debug\Datos.dll
-C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\bin\Debug\Oracle.DataAccess.dll
-C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\bin\Debug\Entidades.pdb
-C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\bin\Debug\Negocio.pdb
-C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\bin\Debug\Datos.pdb
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Vista\bin\Debug\Vista.exe.config
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Vista\bin\Debug\Vista.exe.manifest
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Vista\bin\Debug\Vista.application
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Vista\bin\Debug\Vista.exe
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Vista\bin\Debug\Vista.pdb
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Vista\bin\Debug\Entidades.dll
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Vista\bin\Debug\Negocio.dll
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Vista\bin\Debug\Datos.dll
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Vista\bin\Debug\Oracle.DataAccess.dll
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Vista\bin\Debug\Entidades.pdb
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Vista\bin\Debug\Negocio.pdb
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Vista\bin\Debug\Datos.pdb
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Vista\obj\Debug\Vista.csprojResolveAssemblyReference.cache
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Vista\obj\Debug\ControlMedicamento.g.cs
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Vista\obj\Debug\Inicio.g.cs
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Vista\obj\Debug\Login.g.cs
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Vista\obj\Debug\App.g.cs
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Vista\obj\Debug\Vista_MarkupCompile.cache
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Vista\obj\Debug\Vista_MarkupCompile.lref
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Vista\obj\Debug\ControlMedicamento.baml
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Vista\obj\Debug\Inicio.baml
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Vista\obj\Debug\Login.baml
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Vista\obj\Debug\Vista.g.resources
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Vista\obj\Debug\Vista.Properties.Resources.resources
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Vista\obj\Debug\Vista.csproj.GenerateResource.Cache
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Vista\obj\Debug\Vista.exe.manifest
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Vista\obj\Debug\Vista.application
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Vista\obj\Debug\Vista.exe
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Vista\obj\Debug\Vista.pdb
 C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\obj\Debug\Vista.csprojResolveAssemblyReference.cache
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\obj\Debug\ControlMedicamento.g.cs
 C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\obj\Debug\Inicio.g.cs
 C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\obj\Debug\Login.g.cs
 C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\obj\Debug\App.g.cs
 C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\obj\Debug\Vista_MarkupCompile.cache
 C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\obj\Debug\Vista_MarkupCompile.lref
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\bin\Debug\Vista.exe.config
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\bin\Debug\Vista.exe.manifest
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\bin\Debug\Vista.application
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\bin\Debug\Vista.exe
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\bin\Debug\Vista.pdb
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\bin\Debug\Entidades.dll
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\bin\Debug\itextsharp.dll
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\bin\Debug\Negocio.dll
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\bin\Debug\Datos.dll
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\bin\Debug\Oracle.DataAccess.dll
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\bin\Debug\Entidades.pdb
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\bin\Debug\Negocio.pdb
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\bin\Debug\itextsharp.xml
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\bin\Debug\Datos.pdb
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\obj\Debug\ControlMedicamento.baml
 C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\obj\Debug\Inicio.baml
 C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\obj\Debug\Login.baml
 C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\obj\Debug\Vista.g.resources
 C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\obj\Debug\Vista.Properties.Resources.resources
 C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\obj\Debug\Vista.csproj.GenerateResource.Cache
-C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\obj\Debug\Vista.exe
-C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\obj\Debug\Vista.pdb
-C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\bin\Debug\Vista.exe.manifest
-C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\bin\Debug\Vista.application
 C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\obj\Debug\Vista.exe.manifest
 C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\obj\Debug\Vista.application
-C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\obj\Debug\ControlMedicamento.g.cs
-C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\obj\Debug\ControlMedicamento.baml
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\obj\Debug\Vista.exe
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Vista\obj\Debug\Vista.pdb

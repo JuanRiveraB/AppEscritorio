@@ -1,18 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
+using iTextSharp;
+using iTextSharp.text.pdf;
+using iTextSharp.text;
+using System.Collections;
+using System.Windows.Controls.Primitives;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using System.IO;
+using System.Collections.Generic;
 
 namespace Vista
 {
@@ -29,7 +27,23 @@ namespace Vista
             this.rut = rut;
             InitializeComponent();
             nomUsuario();
+            cargarNivel();
             cargaInicial();
+        }
+
+        private void cargarNivel()
+        {
+            Negocio.UsuarioN un = new Negocio.UsuarioN();
+            if (un.nivelUsuario(rut).Equals("Administrador"))
+            {
+                mCrearFarmaco.IsEnabled = true;
+                mCrearFarmaco.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                mCrearFarmaco.IsEnabled = false;
+                mCrearFarmaco.Visibility = Visibility.Collapsed;
+            }
         }
 
         //Metodo que oculta o muestra la primera carga despues del login
@@ -107,9 +121,26 @@ namespace Vista
 
         private void llenarGrid()
         {
-            Negocio.PrescripcionN prn = new Negocio.PrescripcionN();
-            string rutPer = txtPRut.Text + "-" + txtPDv.Text.ToLower();
-            dgPrescrip.ItemsSource = prn.listarPresEmitidos(rutPer);
+            try
+            {
+                Negocio.PrescripcionN prn = new Negocio.PrescripcionN();
+                string rutPer = txtPRut.Text + "-" + txtPDv.Text.ToLower();
+                ComboBoxItem typeItem = (ComboBoxItem)cboEstadoInicio.SelectedItem;
+                string valorCbo = typeItem.Content.ToString();
+                if (valorCbo == "Emitido")
+                {
+                    dgPrescrip.ItemsSource = prn.listarPresEmitidos(rutPer);
+                }
+                else if (valorCbo == "Reservar")
+                {
+                    dgPrescrip.ItemsSource = prn.listarPresReservar(rutPer);
+                }
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("Error al cargar");
+            }
         }
 
         private void mPerfil_Click(object sender, RoutedEventArgs e)
@@ -332,16 +363,54 @@ namespace Vista
                 Entidades.PrescripcionPersonalizada pr = new Entidades.PrescripcionPersonalizada();
                 Negocio.PrescripcionN pn = new Negocio.PrescripcionN();
                 Entidades.Prescripcion p = new Entidades.Prescripcion();
+                Negocio.MedicamentoN mn = new Negocio.MedicamentoN();
+                Entidades.Medicamento m = new Entidades.Medicamento();
                 pr = (Entidades.PrescripcionPersonalizada)dgPrescrip.SelectedItem;
                 p = pn.obtenerPres(pr.idPrescripcion);
                 p.estado = valorDgCboEstado;
                 if (p != null && p.estado != "Emitido" && valorDgCboEstado.Trim() != string.Empty)
                 {
-                    if (pn.modificarPres(p))
+                    if (p.estado == "Completado")
                     {
-                        MessageBox.Show("Exito al guardar");
-                        valorDgCboEstado = "";
-                        llenarGrid();
+                        m = mn.obtenerMedicamento(p.idMedicamento);
+                        if (m.stock >= p.cantidad)
+                        {
+                            if (pn.modificarPres(p))
+                            {
+                                decimal cantidad = m.stock - pr.cantidad;
+                                m.stock = cantidad;
+                                if (mn.modificarMedicamento(m) == true)
+                                {
+                                    MessageBox.Show("Exito al Completar");
+                                    valorDgCboEstado = "";
+                                    llenarGrid();
+                                }
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se puede completar porque el medicamento no tiene la cantidad requerida, recomiende reservar");
+                            valorDgCboEstado = "";
+                            llenarGrid();
+                        }
+                    }
+                    else if (p.estado == "Reservar")
+                    {
+                        if (pn.modificarPres(p))
+                        {
+                            MessageBox.Show("Exito al reservar");
+                            valorDgCboEstado = "";
+                            llenarGrid();
+                        }
+                    }
+                    else if (p.estado == "Cancelar")
+                    {
+                        if (pn.modificarPres(p))
+                        {
+                            MessageBox.Show("Exito al Cancelar");
+                            valorDgCboEstado = "";
+                            llenarGrid();
+                        }
                     }
                 }
             }
@@ -401,6 +470,9 @@ namespace Vista
                     case "Reservar":
                         dgLisPres.ItemsSource = pn.listarPres("Reservar");
                         break;
+                    case "Cancelar":
+                        dgLisPres.ItemsSource = pn.listarPres("Cancelar");
+                        break;
                     default:
                         break;
                 }
@@ -430,16 +502,112 @@ namespace Vista
         }
 
         private void AplicarEfecto(Window win)
-
         {
             var objBlur = new System.Windows.Media.Effects.BlurEffect();
             win.Effect = objBlur;
         }
 
         private void QuitarEfecto(Window win)
-
         {
             win.Effect = null;
+        }
+
+        private void ExportToPdf(DataGrid grid)
+        {
+            try
+            {
+                PdfPTable table = new PdfPTable(grid.Columns.Count);
+                Document pdfcommande = new Document(iTextSharp.text.PageSize.A4.Rotate(), 6, 3, 3, 3);
+                string Directorio = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                PdfWriter writer = PdfWriter.GetInstance(pdfcommande, new FileStream(Directorio + "\\Informe.pdf", FileMode.Create));
+                pdfcommande.Open();
+                iTextSharp.text.Paragraph firstpara = new iTextSharp.text.Paragraph("Informe de Prescripciones");
+                iTextSharp.text.Paragraph firstpara2 = new iTextSharp.text.Paragraph(" ");
+                foreach (DataGridColumn column in grid.Columns)
+                {
+                    table.AddCell(new Phrase(column.Header.ToString()));
+                }
+                table.HeaderRows = 1;
+                IEnumerable itemsSource = grid.ItemsSource as IEnumerable;
+                if (itemsSource != null)
+                {
+                    foreach (var item in itemsSource)
+                    {
+                        Entidades.PrescripcionPersonalizada ps = new Entidades.PrescripcionPersonalizada();
+                        ps = (Entidades.PrescripcionPersonalizada)item;
+                        if (ps != null)
+                        {
+                            table.AddCell(new Phrase(ps.idPrescripcion.ToString()));
+                            table.AddCell(new Phrase(ps.rutPersona));
+                            table.AddCell(new Phrase(ps.nomPersona));
+                            table.AddCell(new Phrase(ps.diagnostico));
+                            table.AddCell(new Phrase(ps.fechaPres.ToString()));
+                            table.AddCell(new Phrase(ps.rutMedico));
+                            table.AddCell(new Phrase(ps.nomMedico));
+                            table.AddCell(new Phrase(ps.nomMedicamento));
+                            table.AddCell(new Phrase(ps.formaFarmaceutica));
+                            table.AddCell(new Phrase(ps.cantidad.ToString()));
+                            table.AddCell(new Phrase(ps.estado));
+                            /*float[] widths = new float[] { 150f, 150f, 150f, 160f, 160f, 160f, 160f, 160f, 160f, 160f, 160f };
+                            table.SetWidths(widths);*/
+                        }
+                    }
+                    pdfcommande.Add(firstpara);
+                    pdfcommande.Add(firstpara2);
+                    pdfcommande.Add(table);
+                    pdfcommande.Close();
+                    writer.Close();
+                    MessageBox.Show("Informe creado y enviado a escritorio en formato pdf");
+                }
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("No se pudo Crear el informe");
+            }
+        }
+
+        private void btnExportarPres_Click(object sender, RoutedEventArgs e)
+        {
+            ExportToPdf(dgLisPres);
+        }
+
+        private void mCrearFarmaco_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void bntRecordar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                enviarInformes();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error al generar recordatorios");
+            }
+        }
+
+        private void enviarInformes()
+        {
+            try
+            {
+                Negocio.PrescripcionN pn = new Negocio.PrescripcionN();
+                Negocio.Validadores v = new Negocio.Validadores();
+                List<string> emails = new List<string>();
+                foreach (var item in pn.obtenerReservadasAviso())
+                {
+                    if (item.email.Trim() != string.Empty)
+                    {
+                        emails.Add(item.email);
+                    }
+                }
+                v.enviarCorreoRecordatorio(emails);
+            }
+            catch (Exception)
+            {
+
+            }
         }
     }
 }

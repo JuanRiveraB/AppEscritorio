@@ -6,6 +6,14 @@ C:\Users\CETECOM\Downloads\CesfamEscritorio\Datos\bin\Debug\Entidades.pdb
 C:\Users\CETECOM\Downloads\CesfamEscritorio\Datos\obj\Debug\Datos.csprojResolveAssemblyReference.cache
 C:\Users\CETECOM\Downloads\CesfamEscritorio\Datos\obj\Debug\Datos.dll
 C:\Users\CETECOM\Downloads\CesfamEscritorio\Datos\obj\Debug\Datos.pdb
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Datos\bin\Debug\Datos.dll
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Datos\bin\Debug\Datos.pdb
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Datos\bin\Debug\Entidades.dll
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Datos\bin\Debug\Oracle.DataAccess.dll
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Datos\bin\Debug\Entidades.pdb
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Datos\obj\Debug\Datos.csprojResolveAssemblyReference.cache
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Datos\obj\Debug\Datos.dll
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Datos\obj\Debug\Datos.pdb
 C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Datos\bin\Debug\Datos.dll
 C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Datos\bin\Debug\Datos.pdb
 C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Datos\bin\Debug\Entidades.dll

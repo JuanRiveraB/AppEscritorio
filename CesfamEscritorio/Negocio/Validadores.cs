@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -109,6 +110,60 @@ namespace Negocio
             //result = System.Text.Encoding.Unicode.GetString(decryted, 0, decryted.ToArray().Length);
             result = System.Text.Encoding.Unicode.GetString(decryted);
             return result;
+        }
+
+        public void enviarCorreo(List<string> emails, Entidades.Medicamento m)
+        {
+            SmtpClient SmtpServer = new SmtpClient();
+            SmtpServer.Credentials = new System.Net.NetworkCredential ("cesfamti@gmail.com", "cesfamduoc");
+            SmtpServer.Port = 587;
+            SmtpServer.Host = "smtp.gmail.com";
+            SmtpServer.EnableSsl = true;
+            MailMessage mail = new MailMessage();
+            try
+            {
+                mail.From = new MailAddress("cesfamti@gmail.com", "Farmacia Cesfam", System.Text.Encoding.UTF8);
+                mail.Subject = "Llegaron Medicamentos!";
+                mail.Body = "Se le informa que el medicamento "+ m.nombreComercial +" que tenia reservado acaba de llegar, se pide que valla a retirar lo más pronto posible, antes de que se le de prioridad a otra persona. Este correo fue generado automaticamente, porfavor no intente responderlo, Atte. Cesfam";
+                mail.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
+                foreach (var item in emails)
+                {
+                    mail.Bcc.Add(item);
+                }
+                mail.Bcc.Add("cesfamti@gmail.com");
+                SmtpServer.Send(mail);
+            }
+            catch (Exception)
+            {
+                
+            }
+        }
+
+        public void enviarCorreoRecordatorio(List<string> emails)
+        {
+            SmtpClient SmtpServer = new SmtpClient();
+            SmtpServer.Credentials = new System.Net.NetworkCredential("cesfamti@gmail.com", "cesfamduoc");
+            SmtpServer.Port = 587;
+            SmtpServer.Host = "smtp.gmail.com";
+            SmtpServer.EnableSsl = true;
+            MailMessage mail = new MailMessage();
+            try
+            {
+                mail.From = new MailAddress("cesfamti@gmail.com", "Farmacia Cesfam", System.Text.Encoding.UTF8);
+                mail.Subject = "Recordatorio de Medicamentos!";
+                mail.Body = "Se recuerda al paciente o tutor que tiene una reserva de medicamento en Cesfam porfavor retirar lo más pronto posible cuando se le informe la llegada de su medicamento. Este correo fue generado automaticamente, porfavor no intente responderlo, Atte. Cesfam";
+                mail.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
+                foreach (var item in emails)
+                {
+                    mail.Bcc.Add(item);
+                }
+                mail.Bcc.Add("cesfamti@gmail.com");
+                SmtpServer.Send(mail);
+            }
+            catch (Exception)
+            {
+
+            }
         }
     }
 }

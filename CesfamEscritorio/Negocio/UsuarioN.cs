@@ -16,7 +16,8 @@ namespace Negocio
                 if (uDB.validarUsuario(rut, pass) == true)
                 {
                     return true;
-                }else
+                }
+                else
                 {
                     return false;
                 }
@@ -93,6 +94,32 @@ namespace Negocio
             catch (Exception)
             {
                 return false;
+            }
+        }
+
+        public string nivelUsuario(string rut)
+        {
+            try
+            {
+                Datos.UsuarioDB uDB = new Datos.UsuarioDB();
+                Entidades.Usuario u = new Entidades.Usuario();
+                u = uDB.obtenerDatos(rut);
+                if (u != null)
+                {
+                    if (u.nivelId == 8001)
+                    {
+                        return "Administrador";
+                    }else if (u.nivelId == 8000)
+                    {
+                        return "Administrativo";
+                    }
+                }
+                return "";
+            }
+            catch (Exception)
+            {
+
+                return "";
             }
         }
     }

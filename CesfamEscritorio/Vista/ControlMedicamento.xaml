@@ -24,9 +24,12 @@
             <Label x:Name="lblBienvenido" Content="Farmacéutico/a: " Margin="0,112,0,0" FontSize="18" Height="37" VerticalAlignment="Top" HorizontalAlignment="Left" Width="149" FontWeight="Bold"/>
             <Label x:Name="lblUsuario" Content="" Margin="154,112,0,0" VerticalAlignment="Top" FontSize="18" RenderTransformOrigin="-3,0.568" HorizontalAlignment="Left" Width="329" FontWeight="Bold"/>
             <Separator Height="10" Margin="0,141,0,0" VerticalAlignment="Top"/>
-            <Button x:Name="btnVolver" Content="Volver a Inicio" HorizontalAlignment="Left" Margin="754,109,0,0" VerticalAlignment="Top" Width="103" Height="25" Click="btnVolver_Click"/>
-            <Button x:Name="btnIrAgregarMed" Content="Agregar Medicamento" HorizontalAlignment="Left" Margin="488,109,0,0" VerticalAlignment="Top" Width="127" Height="25" Click="btnIrAgregarMed_Click" />
-            <Button x:Name="btnIrAumentar" Content="Gestionar Stock" HorizontalAlignment="Left" Margin="635,109,0,0" VerticalAlignment="Top" Width="103" Height="25" Click="btnIrAumentar_Click"/>
+            <Button x:Name="btnVolver" Content="Volver a Inicio" HorizontalAlignment="Left" Margin="740,109,0,0" VerticalAlignment="Top" Width="132" Height="25" Click="btnVolver_Click" FontWeight="Bold"/>
+            <Button x:Name="btnIrAgregarMed" Content="Agregar Medicamento" HorizontalAlignment="Left" Margin="588,31,0,0" VerticalAlignment="Top" Width="143" Height="25" Click="btnIrAgregarMed_Click" FontWeight="Bold" />
+            <Button x:Name="btnIrAumentar" Content="Gestionar Stock" HorizontalAlignment="Left" Margin="471,31,0,0" VerticalAlignment="Top" Width="103" Height="25" Click="btnIrAumentar_Click" FontWeight="Bold"/>
+            <Button x:Name="btnLisatrMedica" Content="Listar Medicamentos" HorizontalAlignment="Left" Margin="740,31,0,0" VerticalAlignment="Top" Width="132" Height="25" FontWeight="Bold" Click="btnLisatrMedica_Click"/>
+            <Button x:Name="btnListarControles" Content="Listar Controles Stock" HorizontalAlignment="Left" Margin="740,70,0,0" VerticalAlignment="Top" Width="132" Height="25" FontWeight="Bold" Click="btnListarControles_Click"/>
+            <Button x:Name="btnEliminarMed" IsEnabled="False" Content="Eliminar Medicamento" HorizontalAlignment="Left" Margin="588,70,0,0" VerticalAlignment="Top" Width="143" Height="25" FontWeight="Bold" Click="btnEliminarMed_Click"/>
         </Grid>
         <Grid x:Name="gMedAgregar" HorizontalAlignment="Left" Height="469" Margin="0,202,0,0" VerticalAlignment="Top" Width="894" d:IsHidden="True">
             <GroupBox x:Name="groupBox1" Header="Agregar Medicamento" Margin="80,29,80,0" VerticalAlignment="Top" Height="372" FontSize="18" FontWeight="Bold"/>
@@ -44,7 +47,7 @@
             <Button x:Name="btnAgregar" Margin="578,335,0,0" HorizontalAlignment="Left" Width="86" Height="32" VerticalAlignment="Top" Content="Agregar" Click="btnAgregar_Click"/>
             <Label x:Name="lblMesjAgregar" Content="" HorizontalAlignment="Left" Margin="92,336,0,0" VerticalAlignment="Top" FontSize="16" Width="348" Foreground="Red"/>
         </Grid>
-        <Grid x:Name="gMedInicio" Margin="0,202,0,0">
+        <Grid x:Name="gMedInicio" Margin="0,202,0,0" d:IsHidden="True">
             <GroupBox x:Name="groupBox" Header="Gestionar Stock Medicamento" Margin="49,34,49,39" FontSize="18" FontWeight="Bold"/>
             <Label x:Name="lblIdMedAu" Visibility="Hidden" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="119,106,0,0" Width="127"/>
             <Label x:Name="lblNomMed" Content="Nombre Comercial:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="469,151,0,0" RenderTransformOrigin="1.75,1.231" FontSize="14"/>
@@ -61,14 +64,160 @@
             <Button x:Name="btnAumentar" Margin="738,376,0,0" HorizontalAlignment="Left" Width="86" Height="33" VerticalAlignment="Top" Content="Aumentar" Click="btnAumentar_Click"/>
             <ComboBox x:Name="cboAuMed" FontSize="14" HorizontalAlignment="Left" Width="225" Height="27" VerticalAlignment="Top" Margin="585,81,0,0" SelectionChanged="cboAuMed_SelectionChanged">
             </ComboBox>
-            <Label x:Name="lblNomCCAu" Content="Asunto del Aumento:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="58,151,0,0" RenderTransformOrigin="1.75,1.231" FontSize="14"/>
+            <Label x:Name="lblNomCCAu" Content="Asunto del Control:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="70,151,0,0" RenderTransformOrigin="1.75,1.231" FontSize="14"/>
             <Label x:Name="lblDesCCAu" Content="Descripción:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="114,224,0,0" RenderTransformOrigin="1.75,1.231" FontSize="14"/>
-            <Label x:Name="lblCantCCAu" Content="Cantidad Agregada:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="66,189,0,0" RenderTransformOrigin="1.75,1.231" FontSize="14"/>
+            <Label x:Name="lblCantCCAu" Content="Cantidad a Controlar:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="58,190,0,0" RenderTransformOrigin="1.75,1.231" FontSize="14"/>
             <TextBox x:Name="txtNomCCAu" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" Margin="217,157,0,0" FontSize="14"/>
             <TextBox x:Name="txtCanCCAu" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" Margin="217,195,0,0" FontSize="14" KeyDown="txtCanCCAu_KeyDown"/>
             <Label x:Name="lblMsjAumen" Content="" HorizontalAlignment="Left" Margin="66,379,0,0" VerticalAlignment="Top" Width="364" Foreground="Red"/>
             <TextBox x:Name="txtDesCCAu" HorizontalAlignment="Left" Height="144" TextWrapping="Wrap" VerticalAlignment="Top" Width="213" Margin="217,230,0,0" FontSize="14" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" MaxLength="256"/>
             <Button x:Name="btnDescontar" Margin="631,376,0,0" HorizontalAlignment="Left" Width="85" Height="33" VerticalAlignment="Top" Content="Descontar" Click="btnDescontar_Click"/>
+        </Grid>
+        <Grid x:Name="gMedEliminar" Margin="0,202,0,0" d:IsHidden="True">
+            <GroupBox x:Name="gboElim" Header="Eliminar Medicamento" Margin="80,29,80,0" VerticalAlignment="Top" Height="372" FontSize="18" FontWeight="Bold"/>
+            <Label x:Name="lblNomMedElim" Content="Nombre Comercial:" VerticalAlignment="Top" Margin="136,100,0,0" RenderTransformOrigin="1.75,1.231" FontSize="16" HorizontalAlignment="Left"/>
+            <Label x:Name="lblLabMedElim" Content="Laboratorio:" VerticalAlignment="Top" Margin="188,136,0,0" RenderTransformOrigin="1.75,1.231" FontSize="16" HorizontalAlignment="Left"/>
+            <Label x:Name="lblEAN13AElim" Content="EAN13 (Cod Barra):" VerticalAlignment="Top" Margin="138,172,0,0" RenderTransformOrigin="1.75,1.231" FontSize="16" HorizontalAlignment="Left"/>
+            <Label x:Name="lblFormaFElim" Content="Forma Farmaceutica:" VerticalAlignment="Top" Margin="128,208,0,0" RenderTransformOrigin="1.75,1.231" FontSize="16" HorizontalAlignment="Left"/>
+            <Label x:Name="lblStockElim" Content="Stock:" VerticalAlignment="Top" Margin="230,244,0,0" RenderTransformOrigin="1.75,1.231" FontSize="16" HorizontalAlignment="Left"/>
+            <TextBox x:Name="txtNomCoElim" IsReadOnly="True" HorizontalAlignment="Left" Height="28" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="306,104,0,0" FontSize="16"/>
+            <TextBox x:Name="txtLabElim" IsReadOnly="True" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="306,142,0,0" FontSize="16"/>
+            <TextBox x:Name="txtEANElim" IsReadOnly="True" HorizontalAlignment="Left" Height="28" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="306,174,0,0" FontSize="16"/>
+            <TextBox x:Name="txtFFElim" IsReadOnly="True" HorizontalAlignment="Left" Height="26" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="306,212,0,0" FontSize="16"/>
+            <TextBox x:Name="txtStockElim" IsReadOnly="True" HorizontalAlignment="Left" Height="28" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Margin="306,246,0,0" FontSize="16" KeyDown="txtStockAgre_KeyDown"/>
+            <Button x:Name="btnCancelarElim" Margin="540,336,0,0" Height="32" VerticalAlignment="Top" HorizontalAlignment="Left" Width="84" Click="btnCancelarElim_Click" Content="Cancelar"/>
+            <Button x:Name="btnEliminar" Margin="672,336,0,0" HorizontalAlignment="Left" Width="86" Height="32" VerticalAlignment="Top" Content="Eliminar" Click="btnEliminar_Click"/>
+            <Label x:Name="lblMesjElim" Content="" HorizontalAlignment="Left" Margin="92,336,0,0" VerticalAlignment="Top" FontSize="16" Width="348" Foreground="Red"/>
+            <ComboBox x:Name="cboLisElim" HorizontalAlignment="Left" Margin="548,83,0,0" VerticalAlignment="Top" Width="210" Height="28" SelectionChanged="cboLisElim_SelectionChanged"/>
+        </Grid>
+        <Grid x:Name="gListarMed" Margin="0,207,0,0">
+            <GroupBox x:Name="groupBox2" Header="Listar Medicamentos" Margin="75,28,72,48" FontSize="18" FontWeight="Bold">
+                <DataGrid x:Name="dgListarMed" Margin="22,80,22,26" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" FontSize="12" FontWeight="Normal">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn x:Name="dgtIdMed" Header="ID Medicamento" IsReadOnly="True">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Content = "{Binding idMedicamento}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn x:Name="dgtNomMed" Header="Nombre Comercial" IsReadOnly="True" >
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Content = "{Binding nombreComercial}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn x:Name="dgtLabMed" Header="Laboratorio">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Content = "{Binding laboratorio}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn x:Name="dgtEan13Med" Header="EAN13">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Content = "{Binding ean13}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn x:Name="dgtFFMed" Header="Forma Farmaceutica">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Content = "{Binding formaFarmaceutica}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn x:Name="dgtStockMed" Header="Stock">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Content = "{Binding stock}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn x:Name="dgtIdSucursal" Header="ID Sucursal">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Label Content = "{Binding idSucursal}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </GroupBox>
+            <Button x:Name="btnPDFMed" Content="Exportar a pdf" HorizontalAlignment="Left" Margin="668,69,0,0" VerticalAlignment="Top" Width="116" Height="28" Click="btnPDFMed_Click"/>
+        </Grid>
+        <Grid x:Name="gListrarCS" Margin="0,207,0,0" d:IsHidden="True">
+            <GroupBox x:Name="groupBox3" Header="Listrar Controles de Stock" Margin="48,42,48,50" FontSize="18" FontWeight="Bold"/>
+            <DataGrid x:Name="dgLisControl" Margin="74,135,74,76" AutoGenerateColumns="False" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn x:Name="dgtIdCont" Header="ID Control" IsReadOnly="True">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content = "{Binding idControl}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="dgtNom" Header="Nombre Control" IsReadOnly="True" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content = "{Binding nombre}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="dgtDes" Header="Descripcion">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content = "{Binding descrip}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="dgtFecha" Header="Fecha">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content = "{Binding fecha}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="dgtCantidad" Header="Cantidad">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content = "{Binding cantidad}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="dgtRutFar" Header="Rut Farmacéutico">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content = "{Binding rutFar}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="dgtNomFarm" Header="Nombre Farmacéutico">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content = "{Binding nombres}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="dgtIdMedic" Header="ID Medicamento">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content = "{Binding idMedica}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn x:Name="dgtNombreMedica" Header="Nombre Comercial">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Label Content = "{Binding nombreMed}" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button x:Name="btnLisCS" Content="Exportar a pdf" HorizontalAlignment="Left" Margin="663,84,0,0" VerticalAlignment="Top" Width="126" Height="28" FontSize="14" Click="btnLisCS_Click"/>
         </Grid>
 
     </Grid>

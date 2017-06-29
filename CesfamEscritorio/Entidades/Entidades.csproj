@@ -42,11 +42,13 @@
   <ItemGroup>
     <Compile Include="Comuna.cs" />
     <Compile Include="ControlStock.cs" />
+    <Compile Include="ControlStockInforme.cs" />
     <Compile Include="Medicamento.cs" />
     <Compile Include="Medico.cs" />
     <Compile Include="Nivel.cs" />
     <Compile Include="Persona.cs" />
     <Compile Include="Prescripcion.cs" />
+    <Compile Include="PrescripcionAviso.cs" />
     <Compile Include="PrescripcionPersonalizada.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sucursal.cs" />

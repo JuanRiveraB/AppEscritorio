@@ -25,5 +25,19 @@ namespace Negocio
                 return false;
             }
         }
+
+        public List<Entidades.ControlStockInforme> obtenerControlInforme()
+        {
+            try
+            {
+                Datos.ControlStockDB cdb = new Datos.ControlStockDB();
+                return cdb.obtenerControles();
+            }
+            catch (Exception)
+            {
+
+                return null; ;
+            }
+        }
     }
 }

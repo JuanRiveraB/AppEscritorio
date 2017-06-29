@@ -137,5 +137,23 @@ namespace Datos
                 return false;
             }
         }
+
+        public bool eliminarMed(Entidades.Medicamento med)
+        {
+            try
+            {
+                string sqlInsert = "DELETE FROM MEDICAMENTO WHERE ID_MCTOS = "+ med.idMedicamento;
+                OracleCommand cmd = Datos.Conexion.conectar().CreateCommand();
+                cmd.CommandText = sqlInsert;
+                cmd.CommandType = CommandType.Text;
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
     }
 }

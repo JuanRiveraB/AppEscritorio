@@ -1,5 +1,10 @@
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Entidades\bin\Debug\Entidades.dll
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Entidades\bin\Debug\Entidades.pdb
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Entidades\obj\Debug\Entidades.dll
+F:\Demos Portafolio\Programa Cesfam\CesfamEscritorio\Entidades\obj\Debug\Entidades.pdb
 C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Entidades\bin\Debug\Entidades.dll
 C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
 C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Entidades\obj\Debug\Entidades.dll
 C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Entidades\obj\Debug\Entidades.pdb
-C:\Users\Juan\Desktop\Repositorios\AppEscritorio\CesfamEscritorio\Entidades\obj\Debug\Entidades.csprojResolveAssemblyReference.cache
